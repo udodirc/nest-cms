@@ -13,6 +13,7 @@ import { ConfigurationService } from './config/configuration.service';
       useFactory: (config: ConfigurationService): TypeOrmModuleOptions =>
         config.database,
     }),
+    UsersModule
   ],
   controllers: [],
   providers: [ConfigurationModule],

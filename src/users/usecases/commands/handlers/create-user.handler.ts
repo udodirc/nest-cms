@@ -16,7 +16,9 @@ export class CreateUserHandler
 
   async execute(command: CreateUserCommand): Promise<any> {
     const { email, password } = command;
+    const createdAt = Date.now();
+    const updatedAt = Date.now();
 
-    this.repository.save({ email, password });
+    this.repository.save({ email, password, createdAt, updatedAt });
   }
 }

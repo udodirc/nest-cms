@@ -1,4 +1,5 @@
 import { registerAs } from '@nestjs/config';
+import { Users } from 'src/users/data-access/pg';
 
 export default registerAs('config', () => ({
   url: process.env.URL,
@@ -13,7 +14,8 @@ export default registerAs('config', () => ({
       database: process.env.DATABASE,
       password: process.env.DATABASE_PASSWORD,
       synchronize: process.env.ENV === 'development',
-      entities: ['dist/**/*.entity{.ts,.js}', 'dist/**/*.orm{.ts,.js}'],
+      //entities: ['dist/**/*.entity{.ts,.js}', 'dist/**/*.orm{.ts,.js}'],
+      entities: [Users]
     },
   },
 }));

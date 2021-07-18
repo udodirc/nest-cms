@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, Index } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity('users')
 export class Users {
@@ -11,9 +11,9 @@ export class Users {
   @Column("varchar", { length: 255 })
   password: string;
 
-  @Column("timestamp")
+  @Column({ type: 'bigint', nullable: true })
   createdAt: Date;
 
-  @Column("timestamp")
+  @Column({ type: 'bigint', nullable: true })
   updatedAt: Date;
 }

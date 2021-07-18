@@ -3,6 +3,7 @@ import {
   Controller,
   Post,
   BadRequestException,
+  Body,
 } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
@@ -11,6 +12,7 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
+import { CreateUser } from './usecases/dto';
 import { UsersInteractor } from './users.interactor';
 
 @Controller('users')
@@ -31,8 +33,10 @@ export class UsersCommandController {
   @ApiBadRequestResponse({
     description: 'User is not created',
   })
-  async createUser(@Param('email') email: string, @Param('password') password: string): Promise<any> 
+  async createUser( @Body() createUser: CreateUser): Promise<any> 
   {
+    const { email, password } = createUser;
+
     try {
       this.interactor.createUser(email, password);
     } catch (error) {

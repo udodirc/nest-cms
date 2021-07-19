@@ -6,9 +6,19 @@ import { AuthCommandController } from './auth.command.controller';
 import { UsersInteractor } from '../users/users.interactor';
 import { AuthInteractor } from './auth.interactor';
 import { Infrastructure } from './infrastructure';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
-    imports: [UsersModule, CqrsModule],
+    imports: [
+      UsersModule, 
+      CqrsModule,
+      JwtModule.register({
+        secret: 'secret_key',
+        signOptions: {
+          expiresIn: '24h'
+        }
+      })
+    ],
     providers: [UsersInteractor, AuthInteractor, ...UseCases, ...Infrastructure],
     controllers: [AuthCommandController],
     exports: [AuthInteractor],

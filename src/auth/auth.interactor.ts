@@ -10,4 +10,8 @@ export class AuthInteractor {
   async registration(email: string, password: string): Promise<Registration> {
     return this.queryBus.execute(new RegistrationCommand(email, password));
   }
+
+  async login(email: string, password: string): Promise<Registration> {
+    return this.queryBus.execute(new RegistrationCommand(email, password));
+  }
 }

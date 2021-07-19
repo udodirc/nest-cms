@@ -16,7 +16,7 @@ import { CreateUser } from './usecases/dto';
 import { UsersInteractor } from './users.interactor';
 
 @Controller('users')
-@ApiTags('users')
+@ApiTags('Users')
 @ApiBearerAuth()
 export class UsersCommandController {
   constructor(private readonly interactor: UsersInteractor) {}

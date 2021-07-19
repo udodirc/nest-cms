@@ -30,6 +30,6 @@ export class CreateUserHandler
       throw new BadRequestException('This user is exist!');
     }
 
-    this.repository.save({ email, password, createdAt, updatedAt });
+    return this.repository.save({ email, password, createdAt, updatedAt });
   }
 }

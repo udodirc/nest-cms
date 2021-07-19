@@ -1,6 +1,6 @@
 import { Inject } from '@nestjs/common';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
-import { CREATE_USER_SERVICE } from 'src/auth/infrastructure/constants';
+import { CREATE_USER_SERVICE } from '../../../infrastructure/constants';
 import { CreateUserAwareInterface } from 'src/auth/infrastructure/interfaces';
 import { RegistrationCommand } from '../implementation';
 

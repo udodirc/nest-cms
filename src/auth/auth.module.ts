@@ -7,6 +7,7 @@ import { UsersInteractor } from '../users/users.interactor';
 import { AuthInteractor } from './auth.interactor';
 import { Infrastructure } from './infrastructure';
 import { JwtModule } from '@nestjs/jwt';
+import { AuthQueryController } from './auth.query.controllers';
 
 @Module({
     imports: [
@@ -20,7 +21,7 @@ import { JwtModule } from '@nestjs/jwt';
       })
     ],
     providers: [UsersInteractor, AuthInteractor, ...UseCases, ...Infrastructure],
-    controllers: [AuthCommandController],
+    controllers: [AuthCommandController, AuthQueryController],
     exports: [AuthInteractor],
   })
   export class AuthModule {}

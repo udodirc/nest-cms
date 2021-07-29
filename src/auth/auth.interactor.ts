@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
-import { RegistrationCommand } from './usecases/commands/implementation';
+import { LoginCommand, RegistrationCommand } from './usecases/commands/implementation';
 import { Registration } from './usecases/dto';
 
 @Injectable()
@@ -12,6 +12,6 @@ export class AuthInteractor {
   }
 
   async login(email: string, password: string): Promise<Registration> {
-    return this.queryBus.execute(new RegistrationCommand(email, password));
+    return this.queryBus.execute(new LoginCommand(email, password));
   }
 }

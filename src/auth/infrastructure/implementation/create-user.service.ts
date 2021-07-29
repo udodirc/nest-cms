@@ -2,7 +2,6 @@ import { CreateUserAwareInterface } from '../interfaces';
 import { UsersInteractor } from '../../../users/users.interactor';
 import { Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
-import { Users } from 'src/users/enitites/model';
 
 @Injectable()
 export class CreateUserService implements CreateUserAwareInterface {

@@ -42,21 +42,4 @@ import { Registration } from './usecases/dto';
         throw new BadRequestException('Registration is fail!');
       }
     }
-
-    @Post('/login')
-    @ApiOperation({
-      summary:
-        'User login',
-    })
-    @ApiResponse({
-      status: 201,
-      description: 'User is logged',
-    })
-    @ApiBadRequestResponse({
-      description: 'User is not logged',
-    })
-    async login( @Body() registration: Registration): Promise<any> 
-    {
-      
-    }
   }

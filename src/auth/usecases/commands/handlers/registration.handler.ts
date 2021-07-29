@@ -2,7 +2,7 @@ import { Inject } from '@nestjs/common';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { JwtService } from '@nestjs/jwt';
 import { CREATE_USER_SERVICE } from '../../../infrastructure/constants';
-import { CreateUserAwareInterface } from 'src/auth/infrastructure/interfaces';
+import { CreateUserAwareInterface } from '../../../infrastructure/interfaces';
 import { RegistrationCommand } from '../implementation';
 
 @QueryHandler(RegistrationCommand)
